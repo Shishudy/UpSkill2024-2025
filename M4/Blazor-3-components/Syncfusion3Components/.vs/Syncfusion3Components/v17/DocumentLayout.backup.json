@@ -1,0 +1,282 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{395A22C0-D73F-46CB-AD66-B707A0B75379}|Syncfusion3Components\\Syncfusion3Components.csproj|c:\\users\\rafae\\desktop\\upskill\\m4\\solutions\\syncfusion3components\\syncfusion3components\\components\\pages\\todo-kanban.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{395A22C0-D73F-46CB-AD66-B707A0B75379}|Syncfusion3Components\\Syncfusion3Components.csproj|solutionrelative:syncfusion3components\\components\\pages\\todo-kanban.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{395A22C0-D73F-46CB-AD66-B707A0B75379}|Syncfusion3Components\\Syncfusion3Components.csproj|c:\\users\\rafae\\desktop\\upskill\\m4\\solutions\\syncfusion3components\\syncfusion3components\\models\\tarefaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{395A22C0-D73F-46CB-AD66-B707A0B75379}|Syncfusion3Components\\Syncfusion3Components.csproj|solutionrelative:syncfusion3components\\models\\tarefaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{395A22C0-D73F-46CB-AD66-B707A0B75379}|Syncfusion3Components\\Syncfusion3Components.csproj|c:\\users\\rafae\\desktop\\upskill\\m4\\solutions\\syncfusion3components\\syncfusion3components\\models\\tarefa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{395A22C0-D73F-46CB-AD66-B707A0B75379}|Syncfusion3Components\\Syncfusion3Components.csproj|solutionrelative:syncfusion3components\\models\\tarefa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{395A22C0-D73F-46CB-AD66-B707A0B75379}|Syncfusion3Components\\Syncfusion3Components.csproj|c:\\users\\rafae\\desktop\\upskill\\m4\\solutions\\syncfusion3components\\syncfusion3components\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{395A22C0-D73F-46CB-AD66-B707A0B75379}|Syncfusion3Components\\Syncfusion3Components.csproj|solutionrelative:syncfusion3components\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{395A22C0-D73F-46CB-AD66-B707A0B75379}|Syncfusion3Components\\Syncfusion3Components.csproj|c:\\users\\rafae\\desktop\\upskill\\m4\\solutions\\syncfusion3components\\syncfusion3components\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{395A22C0-D73F-46CB-AD66-B707A0B75379}|Syncfusion3Components\\Syncfusion3Components.csproj|solutionrelative:syncfusion3components\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{395A22C0-D73F-46CB-AD66-B707A0B75379}|Syncfusion3Components\\Syncfusion3Components.csproj|c:\\users\\rafae\\desktop\\upskill\\m4\\solutions\\syncfusion3components\\syncfusion3components\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{395A22C0-D73F-46CB-AD66-B707A0B75379}|Syncfusion3Components\\Syncfusion3Components.csproj|solutionrelative:syncfusion3components\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{395A22C0-D73F-46CB-AD66-B707A0B75379}|Syncfusion3Components\\Syncfusion3Components.csproj|c:\\users\\rafae\\desktop\\upskill\\m4\\solutions\\syncfusion3components\\syncfusion3components\\components\\pages\\error.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{395A22C0-D73F-46CB-AD66-B707A0B75379}|Syncfusion3Components\\Syncfusion3Components.csproj|solutionrelative:syncfusion3components\\components\\pages\\error.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{395A22C0-D73F-46CB-AD66-B707A0B75379}|Syncfusion3Components\\Syncfusion3Components.csproj|c:\\users\\rafae\\desktop\\upskill\\m4\\solutions\\syncfusion3components\\syncfusion3components\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{395A22C0-D73F-46CB-AD66-B707A0B75379}|Syncfusion3Components\\Syncfusion3Components.csproj|solutionrelative:syncfusion3components\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{395A22C0-D73F-46CB-AD66-B707A0B75379}|Syncfusion3Components\\Syncfusion3Components.csproj|c:\\users\\rafae\\desktop\\upskill\\m4\\solutions\\syncfusion3components\\syncfusion3components\\components\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{395A22C0-D73F-46CB-AD66-B707A0B75379}|Syncfusion3Components\\Syncfusion3Components.csproj|solutionrelative:syncfusion3components\\components\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{395A22C0-D73F-46CB-AD66-B707A0B75379}|Syncfusion3Components\\Syncfusion3Components.csproj|c:\\users\\rafae\\desktop\\upskill\\m4\\solutions\\syncfusion3components\\syncfusion3components\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{395A22C0-D73F-46CB-AD66-B707A0B75379}|Syncfusion3Components\\Syncfusion3Components.csproj|solutionrelative:syncfusion3components\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{395A22C0-D73F-46CB-AD66-B707A0B75379}|Syncfusion3Components\\Syncfusion3Components.csproj|c:\\users\\rafae\\desktop\\upskill\\m4\\solutions\\syncfusion3components\\syncfusion3components\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{395A22C0-D73F-46CB-AD66-B707A0B75379}|Syncfusion3Components\\Syncfusion3Components.csproj|solutionrelative:syncfusion3components\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB2E30A3-C246-468F-A1DD-3DFDD6A16AC8}|..\\Blazor3ComponentsWithAPI\\MvcAPI\\MvcAPI.csproj|c:\\users\\rafae\\desktop\\upskill\\m4\\solutions\\blazor3componentswithapi\\mvcapi\\data\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB2E30A3-C246-468F-A1DD-3DFDD6A16AC8}|..\\Blazor3ComponentsWithAPI\\MvcAPI\\MvcAPI.csproj|c:\\users\\rafae\\desktop\\upskill\\m4\\solutions\\blazor3componentswithapi\\mvcapi\\models\\tarefa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB2E30A3-C246-468F-A1DD-3DFDD6A16AC8}|..\\Blazor3ComponentsWithAPI\\MvcAPI\\MvcAPI.csproj|c:\\users\\rafae\\desktop\\upskill\\m4\\solutions\\blazor3componentswithapi\\mvcapi\\controllers\\tarefascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\Program.cs",
+              "RelativeDocumentMoniker": "Syncfusion3Components\\Program.cs",
+              "ToolTip": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\Program.cs",
+              "RelativeToolTip": "Syncfusion3Components\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T16:53:11.628Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Todo-kanban.razor",
+              "DocumentMoniker": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\Components\\Pages\\Todo-kanban.razor",
+              "RelativeDocumentMoniker": "Syncfusion3Components\\Components\\Pages\\Todo-kanban.razor",
+              "ToolTip": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\Components\\Pages\\Todo-kanban.razor",
+              "RelativeToolTip": "Syncfusion3Components\\Components\\Pages\\Todo-kanban.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFoAAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-25T15:48:23.837Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{ecb7191a-597b-41f5-9843-03a4cf275dde}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0504ff91-9d61-11d0-a794-00a0c9110051}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{be4d7042-ba3f-11d2-840e-00c04f9902c1}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{605322a2-17ae-43f4-b60f-766556e46c87}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{28836128-fc2c-11d2-a433-00c04f72d18a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Routes.razor",
+              "DocumentMoniker": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\Components\\Routes.razor",
+              "RelativeDocumentMoniker": "Syncfusion3Components\\Components\\Routes.razor",
+              "ToolTip": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\Components\\Routes.razor",
+              "RelativeToolTip": "Syncfusion3Components\\Components\\Routes.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-27T10:10:20.78Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Index.razor",
+              "DocumentMoniker": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\Components\\Pages\\Index.razor",
+              "RelativeDocumentMoniker": "Syncfusion3Components\\Components\\Pages\\Index.razor",
+              "ToolTip": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\Components\\Pages\\Index.razor",
+              "RelativeToolTip": "Syncfusion3Components\\Components\\Pages\\Index.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAB9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-27T10:08:20.002Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Error.razor",
+              "DocumentMoniker": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\Components\\Pages\\Error.razor",
+              "RelativeDocumentMoniker": "Syncfusion3Components\\Components\\Pages\\Error.razor",
+              "ToolTip": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\Components\\Pages\\Error.razor",
+              "RelativeToolTip": "Syncfusion3Components\\Components\\Pages\\Error.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-27T09:55:43.715Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TarefaService.cs",
+              "DocumentMoniker": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\Models\\TarefaService.cs",
+              "RelativeDocumentMoniker": "Syncfusion3Components\\Models\\TarefaService.cs",
+              "ToolTip": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\Models\\TarefaService.cs",
+              "RelativeToolTip": "Syncfusion3Components\\Models\\TarefaService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T10:40:02.867Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\Components\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "Syncfusion3Components\\Components\\Layout\\MainLayout.razor",
+              "ToolTip": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\Components\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "Syncfusion3Components\\Components\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-25T16:24:41.425Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Tarefa.cs",
+              "DocumentMoniker": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Blazor3ComponentsWithAPI\\MvcAPI\\Models\\Tarefa.cs",
+              "RelativeDocumentMoniker": "..\\Blazor3ComponentsWithAPI\\MvcAPI\\Models\\Tarefa.cs",
+              "ToolTip": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Blazor3ComponentsWithAPI\\MvcAPI\\Models\\Tarefa.cs",
+              "RelativeToolTip": "..\\Blazor3ComponentsWithAPI\\MvcAPI\\Models\\Tarefa.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T16:24:31.888Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "DatabaseContext.cs",
+              "DocumentMoniker": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Blazor3ComponentsWithAPI\\MvcAPI\\Data\\DatabaseContext.cs",
+              "RelativeDocumentMoniker": "..\\Blazor3ComponentsWithAPI\\MvcAPI\\Data\\DatabaseContext.cs",
+              "ToolTip": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Blazor3ComponentsWithAPI\\MvcAPI\\Data\\DatabaseContext.cs",
+              "RelativeToolTip": "..\\Blazor3ComponentsWithAPI\\MvcAPI\\Data\\DatabaseContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T16:24:21.116Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "TarefasController.cs",
+              "DocumentMoniker": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Blazor3ComponentsWithAPI\\MvcAPI\\Controllers\\TarefasController.cs",
+              "RelativeDocumentMoniker": "..\\Blazor3ComponentsWithAPI\\MvcAPI\\Controllers\\TarefasController.cs",
+              "ToolTip": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Blazor3ComponentsWithAPI\\MvcAPI\\Controllers\\TarefasController.cs",
+              "RelativeToolTip": "..\\Blazor3ComponentsWithAPI\\MvcAPI\\Controllers\\TarefasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T16:23:56.095Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Tarefa.cs",
+              "DocumentMoniker": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\Models\\Tarefa.cs",
+              "RelativeDocumentMoniker": "Syncfusion3Components\\Models\\Tarefa.cs",
+              "ToolTip": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\Models\\Tarefa.cs",
+              "RelativeToolTip": "Syncfusion3Components\\Models\\Tarefa.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T16:07:29.335Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\Components\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "Syncfusion3Components\\Components\\Layout\\NavMenu.razor",
+              "ToolTip": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\Components\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "Syncfusion3Components\\Components\\Layout\\NavMenu.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-25T16:04:51.617Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_Imports.razor",
+              "DocumentMoniker": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\Components\\_Imports.razor",
+              "RelativeDocumentMoniker": "Syncfusion3Components\\Components\\_Imports.razor",
+              "ToolTip": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\Components\\_Imports.razor",
+              "RelativeToolTip": "Syncfusion3Components\\Components\\_Imports.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-25T15:50:01.363Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "App.razor",
+              "DocumentMoniker": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\Components\\App.razor",
+              "RelativeDocumentMoniker": "Syncfusion3Components\\Components\\App.razor",
+              "ToolTip": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\Components\\App.razor",
+              "RelativeToolTip": "Syncfusion3Components\\Components\\App.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-25T15:49:18.688Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

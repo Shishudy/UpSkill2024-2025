@@ -1,0 +1,61 @@
+C:\Users\rafae\Desktop\UpSkill\M4\Solutions\Syncfusion3Components\Syncfusion3Components\wwwroot\open-iconic\font\fonts\open-iconic.otf
+C:\Users\rafae\Desktop\UpSkill\M4\Solutions\Syncfusion3Components\Syncfusion3Components\wwwroot\bootstrap\bootstrap.min.css.map
+C:\Users\rafae\Desktop\UpSkill\M4\Solutions\Syncfusion3Components\Syncfusion3Components\wwwroot\open-iconic\font\fonts\open-iconic.svg
+C:\Users\rafae\Desktop\UpSkill\M4\Solutions\Syncfusion3Components\Syncfusion3Components\wwwroot\open-iconic\font\css\open-iconic-bootstrap.min.css
+C:\Users\rafae\Desktop\UpSkill\M4\Solutions\Syncfusion3Components\Syncfusion3Components\wwwroot\open-iconic\README.md
+C:\Users\rafae\Desktop\UpSkill\M4\Solutions\Syncfusion3Components\Syncfusion3Components\wwwroot\fonts\syncfusion\icons.svg
+C:\Users\rafae\Desktop\UpSkill\M4\Solutions\Syncfusion3Components\Syncfusion3Components\wwwroot\syncfusion-blazor-icons.css
+C:\Users\rafae\Desktop\UpSkill\M4\Solutions\Syncfusion3Components\Syncfusion3Components\wwwroot\app.css
+C:\Users\rafae\Desktop\UpSkill\M4\Solutions\Syncfusion3Components\Syncfusion3Components\wwwroot\bootstrap\bootstrap.min.css
+wwwroot\app.css
+wwwroot\bootstrap\bootstrap.min.css
+wwwroot\bootstrap\bootstrap.min.css.map
+wwwroot\favicon.png
+wwwroot\fonts\syncfusion\icons.eot
+wwwroot\fonts\syncfusion\icons.svg
+wwwroot\fonts\syncfusion\icons.ttf
+wwwroot\fonts\syncfusion\icons.woff
+wwwroot\images\ToggleButton.png
+wwwroot\Kanban\Andrew Fuller.png
+wwwroot\Kanban\Janet Leverling.png
+wwwroot\Kanban\Laura Callahan.png
+wwwroot\Kanban\Margaret hamilt.png
+wwwroot\Kanban\menu_01.png
+wwwroot\Kanban\menu_02.png
+wwwroot\Kanban\menu_03.png
+wwwroot\Kanban\menu_04.png
+wwwroot\Kanban\menu_05.png
+wwwroot\Kanban\menu_06.png
+wwwroot\Kanban\menu_07.png
+wwwroot\Kanban\menu_08.png
+wwwroot\Kanban\menu_09.png
+wwwroot\Kanban\menu_10.png
+wwwroot\Kanban\menu_11.png
+wwwroot\Kanban\menu_12.png
+wwwroot\Kanban\menu_13.png
+wwwroot\Kanban\menu_14.png
+wwwroot\Kanban\menu_15.png
+wwwroot\Kanban\menu_16.png
+wwwroot\Kanban\menu_17.png
+wwwroot\Kanban\menu_18.png
+wwwroot\Kanban\menu_19.png
+wwwroot\Kanban\menu_20.png
+wwwroot\Kanban\menu_21.png
+wwwroot\Kanban\menu_22.png
+wwwroot\Kanban\menu_23.png
+wwwroot\Kanban\menu_24.png
+wwwroot\Kanban\menu_25.png
+wwwroot\Kanban\Michael Suyama.png
+wwwroot\Kanban\Nancy Davloio.png
+wwwroot\Kanban\Robert King.png
+wwwroot\Kanban\Steven walker.png
+wwwroot\open-iconic\font\css\open-iconic-bootstrap.min.css
+wwwroot\open-iconic\font\fonts\open-iconic.eot
+wwwroot\open-iconic\font\fonts\open-iconic.otf
+wwwroot\open-iconic\font\fonts\open-iconic.svg
+wwwroot\open-iconic\font\fonts\open-iconic.ttf
+wwwroot\open-iconic\font\fonts\open-iconic.woff
+wwwroot\open-iconic\FONT-LICENSE
+wwwroot\open-iconic\ICON-LICENSE
+wwwroot\open-iconic\README.md
+wwwroot\syncfusion-blazor-icons.css

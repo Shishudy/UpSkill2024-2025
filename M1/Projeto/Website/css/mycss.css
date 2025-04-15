@@ -1,0 +1,141 @@
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 2;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+	border-radius: 8px;
+	overflow-y: auto;
+	max-height: 50%;
+	margin: 10% auto;
+	padding: 20px;
+	width: 30%;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+	background-color: #fefefe;
+}
+
+.close {
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+	color: #aaa;
+}
+
+.close:hover,
+.close:focus {
+	text-decoration: none;
+	cursor: pointer;
+	color: #000;
+}
+
+input[type="text"],
+input[type="password"] {
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+}
+
+#loginButton {
+	margin-left: 40%;
+	color: white;
+	background: #741d51;
+    background: -moz-linear-gradient(left, #741d51 0%, #e44e52 100%);
+    background: -webkit-linear-gradient(left, #741d51 0%,#e44e52 100%);
+    background: linear-gradient(to right, #741d51 0%,#e44e52 100%);
+}
+
+.login-btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: none;
+	border-radius: 4px;
+	width: 100%;
+	padding: 14px 20px;
+	margin: 8px 0;
+	cursor: pointer;
+	color: white;
+	background: #741d51;
+    background: -moz-linear-gradient(left, #741d51 0%, #e44e52 100%);
+    background: -webkit-linear-gradient(left, #741d51 0%,#e44e52 100%);
+    background: linear-gradient(to right, #741d51 0%,#e44e52 100%);
+}
+
+.login-btn:hover {
+	background-color: #45a049;
+}
+
+/* ---------------------------------------------------------------- */
+
+.pagination {
+	display: flex;
+	justify-content: center;
+}
+
+.pagination a {
+	border: 1px solid #ddd;
+	text-decoration: none;
+	padding: 8px 16px;
+	margin: 0 2px;
+	color: black;
+	transition: background-color 0.3s;
+}
+
+.pagination a.active {
+	color: white;
+	background-color: #076785;
+}
+
+.pagination a:hover:not(.active) {
+	background-color: #ddd;
+}
+
+/* ---------------------------------------------------------------- */
+
+#popup {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	border-radius: 5px;
+	bottom: 20px;
+	right: 20px;
+	padding: 15px;
+	color: white;
+	background-color: #333;
+}
+
+#concluir-compra {
+	background: #741d51;
+    background: -moz-linear-gradient(left, #741d51 0%, #e44e52 100%);
+    background: -webkit-linear-gradient(left, #741d51 0%,#e44e52 100%);
+    background: linear-gradient(to right, #741d51 0%,#e44e52 100%);
+}
+
+#welcomeUser {
+	display: none;
+	text-align: right;
+	font-size: large;
+}
+
+.info-card-modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	transform: scale(1.3);
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.rating {
+	float: right;
+	font-size: 20px;
+}

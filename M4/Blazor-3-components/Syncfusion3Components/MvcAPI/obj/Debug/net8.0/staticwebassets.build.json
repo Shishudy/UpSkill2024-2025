@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "NtHKVhyekG4ryp0uJbfw8vi5mviR2QhMNRLKlkRQe5E=",
+  "Source": "MvcAPI",
+  "BasePath": "_content/MvcAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

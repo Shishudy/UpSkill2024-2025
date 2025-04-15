@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "IIS",
+    "Projects": [
+      {
+        "Path": "..\\Blazor3ComponentsWithAPI\\MvcAPI\\MvcAPI.csproj",
+        "Action": "Start",
+        "DebugTarget": "IIS Express"
+      },
+      {
+        "Path": "Syncfusion3Components\\Syncfusion3Components.csproj",
+        "Action": "Start",
+        "DebugTarget": "IIS Express"
+      }
+    ]
+  }
+]

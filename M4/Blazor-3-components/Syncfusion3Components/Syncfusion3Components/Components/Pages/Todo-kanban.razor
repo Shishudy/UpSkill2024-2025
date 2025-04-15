@@ -1,0 +1,306 @@
+﻿@page "/todo-kanban"
+@using Syncfusion.Blazor;
+@using Syncfusion.Blazor.Kanban;
+@using Syncfusion.Blazor.Data;
+@using Syncfusion.Blazor.DropDowns;
+@using Syncfusion.Blazor.Popups;
+@using Syncfusion.Blazor.Buttons;
+@using Syncfusion.Blazor.Navigations;
+@using Syncfusion.Blazor.Calendars;
+@using Syncfusion.Blazor.Inputs;
+@using System.ComponentModel.DataAnnotations;
+@inject TarefaService TarefaService;
+@inject NavigationManager Navigation;
+@rendermode InteractiveServer
+
+<PageTitle>Kanban</PageTitle>
+<h2>Kanban</h2>
+<br/>
+<div class="col-lg-12 control-section">
+    @if (@_buttonVisible) 
+    { 
+        <SfButton Content="New item" OnClick="OnClick"></SfButton> 
+    } 
+<br/>
+    <SfDialog Target="#target" Width="250px" ShowCloseIcon="true" IsModal="true" @bind-Visible="@_alertVisible"> 
+        <DialogTemplates> 
+            <Header> 
+                Success 
+            </Header> 
+            <Content> 
+                ToDo item added! 
+            </Content> 
+        </DialogTemplates> 
+    </SfDialog>
+    <SfDialog Width="700px" Target="#target" ShowCloseIcon="true" @bind-Visible="@_dialogVisible"> 
+        <DialogTemplates> 
+            <Header> 
+                New To-do Item
+            </Header> 
+            <Content> 
+                <SfTab> 
+                    <div id="formId" class="form-horizontal"> 
+                        <EditForm Model="@NewTarefa" OnValidSubmit="@AdicionarTarefa">
+                            <DataAnnotationsValidator /> 
+                            <div class="form-group"> 
+                                <SfTextBox Placeholder="Utilizador" FloatLabelType="FloatLabelType.Auto" @bind-Value="@NewTarefa.Username" />
+                                <ValidationMessage For="@(() => NewTarefa.Username)" /> 
+                            </div> 
+                            <div class="form-group"> 
+                                <div class="e-float-input"> 
+                                    <SfDatePicker TValue="DateTime" Placeholder="Data do evento" @bind-Value="@NewTarefa.DOB" />
+                                    <ValidationMessage For="@(() => NewTarefa.DOB)" /> 
+                                </div> 
+                            </div> 
+                            <div class="form-group"> 
+                                <SfTextBox Placeholder="Descrição" FloatLabelType="FloatLabelType.Auto" Multiline="true" @bind-Value="@NewTarefa.Description" /> 
+                                <ValidationMessage For="@(() => NewTarefa.Description)" /> 
+                            </div>
+                            <div class="e-row"> 
+                                <div style="width: 220px;margin:0px auto;height: 100px;padding-top: 25px;"> 
+                                    <div style="display: inline-block;"> 
+                                        <button class="samplebtn e-control e-btn" type="submit" data-ripple="true">Add Item</button> 
+                                    </div> 
+                                    <div style="float: right;">
+										<button class="samplebtn e-control e-btn" type="reset" @onclick="@OnBtnClick" data-ripple="true">Cancel</button>
+									</div> 
+                                </div> 
+                            </div> 
+                        </EditForm> 
+                    </div> 
+                </SfTab> 
+            </Content> 
+        </DialogTemplates> 
+    </SfDialog> 
+</div>
+<br/>
+<div id = "ControlRegion">
+    <div class="kanban">
+        @if (Tarefas == null)
+        {
+            <p>Carregando...</p>
+        }
+        else
+        {
+			<SfKanban TValue="Tarefa" CssClass="kanban-default" KeyField="Status" DataSource="@Tarefas">
+                <KanbanColumns>
+                    <KanbanColumn HeaderText="To Do" KeyField="@(new List<string>() {"Open"})"></KanbanColumn>
+                    <KanbanColumn HeaderText="In Progress" KeyField="@(new List<string>() {"InProgress"})"></KanbanColumn>
+                    <KanbanColumn HeaderText="Done" KeyField="@(new List<string>() {"Closed"})"></KanbanColumn>
+                </KanbanColumns>
+                <KanbanCardSettings ShowHeader="false" HeaderField="Id" ContentField="Description"></KanbanCardSettings>
+                <KanbanSwimlaneSettings KeyField="Username"></KanbanSwimlaneSettings>
+				<KanbanEvents TValue="Tarefa" DragStop="@UpdateTask"></KanbanEvents>
+            </SfKanban>
+        }
+    </div>
+</div>
+
+@code {
+    private bool _buttonVisible { get; set; } = true;
+    private bool _alertVisible { get; set; } = false;
+    private bool _dialogVisible { get; set; } = false;
+    private List<Tarefa> Tarefas;
+    private Tarefa NewTarefa = new Tarefa();
+
+    private void OnOpen()
+    {
+        this._buttonVisible = false;
+    }
+    private void OnClose()
+    {
+        this._buttonVisible = true;
+    }
+    private void OnBtnClick()
+    {
+        this._dialogVisible = false;
+    }
+    private void OnClick()
+    {
+        this._dialogVisible = true;
+    }
+
+	protected override async Task OnInitializedAsync()
+	{
+		Tarefas = await TarefaService.GetTarefasAsync();
+	}
+
+    private async Task AdicionarTarefa()
+    {
+        NewTarefa.Status = "Open";
+        await TarefaService.AdicionarTarefaAsync(NewTarefa);
+        NewTarefa = new Tarefa();
+        this._alertVisible = true;
+        Tarefas = await TarefaService.GetTarefasAsync();
+		this._dialogVisible = false;
+    }
+
+    public async Task UpdateTask(Syncfusion.Blazor.Kanban.DragEventArgs<Tarefa> args)
+    {
+		var tarefa = args.Data[0];
+		if (tarefa != null)
+		{
+			await TarefaService.AtualizarTarefaAsync(tarefa);
+			Tarefas = await TarefaService.GetTarefasAsync();
+		}
+	}
+}
+
+<style>
+	.ulstyle {
+		margin: 0px;
+		padding-left: 20px;
+		display: inline-block;
+	}
+
+	.list {
+		float: left;
+		line-height: 20px;
+		margin: 10px;
+		min-width: 290px;
+	}
+
+	.control-section {
+		padding-left: 10px;
+	}
+
+	.fluent #target .e-dialog,
+	.fluent-dark #target .e-dialog,
+	.fluent2-dark #target .e-dialog,
+	.fluent2-highcontrast #target .e-dialog {
+		height: inherit;
+	}
+
+	.fluent.e-bigger #target .e-dialog,
+	.fluent-dark.e-bigger #target .e-dialog,
+	.fluent2-dark.e-bigger #target .e-dialog,
+	.fluent2-highcontrast.e-bigger #target .e-dialog {
+		height: 700px;
+	}
+
+	#target {
+		height: 100%;
+		min-height: 545px;
+	}
+
+		#target .e-dialog {
+			height: 400px;
+		}
+
+	@@media screen and (min-width: 150px) and (max-width: 480px) {
+		.control-section {
+			margin-bottom: 30px;
+		}
+
+		.control-wrapper {
+			margin-bottom: 0px;
+		}
+	}
+
+	#defaultDialog {
+		top: 0% !important;
+	}
+
+	.e-btn-hide {
+		display: none;
+	}
+
+	.form-title {
+		text-align: center;
+		padding: 10px;
+		font-size: 16px;
+		font-weight: 500;
+		color: rgba(0, 0, 0, 0.70);
+	}
+
+	.tailwind-dark .form-title,
+	.tailwind3-dark .form-title,
+	.bootstrap5-dark .form-title,
+	.tailwind-dark .form-title,
+	.tailwind3-dark .form-title,
+	.bootrap-dark .form-title,
+	.fabric-dark .form-title {
+		color: rgb(249 249 249);
+	}
+
+	.bootstrap5-dark #formId,
+	.tailwind-dark #formId,
+	.tailwind3-dark #formId,
+	.bootrap-dark #formId,
+	.fabric-dark #formId {
+		background-color: #000;
+	}
+
+	.e-error,
+	.e-float-text {
+		font-weight: 500;
+	}
+
+	.e-custom-label {
+		font-size: 14px;
+		font-weight: 500;
+		margin-left: 20px;
+	}
+
+	#formId {
+		padding-top: 10px;
+		border: 1px solid #ccc;
+		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.36);
+		border-radius: 5px;
+		background: #f9f9f9;
+		height: 267px;
+		overflow-y: scroll;
+	}
+
+	.material-dark #formId,
+	.material3-dark #formId,
+	.bootstrap5-dark #formId,
+	.bootstrap5\.3-dark #formId {
+		background: #212529;
+	}
+
+	.bootstrap-dark #formId {
+		background: #1a1a1a;
+	}
+
+	.fabric-dark #formId {
+		background: #201f1f;
+	}
+
+	.tailwind-dark #formId,
+	.tailwind3-dark #formId {
+		background: #1f2937;
+	}
+
+	.fluent2-dark #formId,
+	.fluent-dark #formId,
+	.fluent2-highcontrast #formId {
+		background: #111111;
+	}
+
+	.highcontrast form,
+	.highcontrast .header {
+		color: #fff;
+		background: #000000;
+	}
+
+	.header {
+		color: rgba(0, 0, 0, 0.7);
+	}
+
+	table,
+	td,
+	th {
+		padding: 3px;
+	}
+
+	.form-horizontal .form-group {
+		margin-left: 20px;
+		margin-right: 20px;
+		margin-bottom: 5px;
+	}
+
+	.e-dialog .e-dlg-content {
+		padding: 14px;
+	}
+</style>

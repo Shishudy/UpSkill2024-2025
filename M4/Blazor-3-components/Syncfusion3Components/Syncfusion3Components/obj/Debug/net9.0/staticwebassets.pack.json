@@ -1,0 +1,237 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\Syncfusion3Components.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Syncfusion3Components.7t6qaoixx4.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\Andrew Fuller.png",
+      "PackagePath": "staticwebassets\\Kanban\\Andrew Fuller.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\Janet Leverling.png",
+      "PackagePath": "staticwebassets\\Kanban\\Janet Leverling.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\Laura Callahan.png",
+      "PackagePath": "staticwebassets\\Kanban\\Laura Callahan.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\Margaret hamilt.png",
+      "PackagePath": "staticwebassets\\Kanban\\Margaret hamilt.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\Michael Suyama.png",
+      "PackagePath": "staticwebassets\\Kanban\\Michael Suyama.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\Nancy Davloio.png",
+      "PackagePath": "staticwebassets\\Kanban\\Nancy Davloio.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\Robert King.png",
+      "PackagePath": "staticwebassets\\Kanban\\Robert King.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\Steven walker.png",
+      "PackagePath": "staticwebassets\\Kanban\\Steven walker.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\menu_01.png",
+      "PackagePath": "staticwebassets\\Kanban\\menu_01.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\menu_02.png",
+      "PackagePath": "staticwebassets\\Kanban\\menu_02.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\menu_03.png",
+      "PackagePath": "staticwebassets\\Kanban\\menu_03.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\menu_04.png",
+      "PackagePath": "staticwebassets\\Kanban\\menu_04.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\menu_05.png",
+      "PackagePath": "staticwebassets\\Kanban\\menu_05.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\menu_06.png",
+      "PackagePath": "staticwebassets\\Kanban\\menu_06.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\menu_07.png",
+      "PackagePath": "staticwebassets\\Kanban\\menu_07.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\menu_08.png",
+      "PackagePath": "staticwebassets\\Kanban\\menu_08.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\menu_09.png",
+      "PackagePath": "staticwebassets\\Kanban\\menu_09.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\menu_10.png",
+      "PackagePath": "staticwebassets\\Kanban\\menu_10.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\menu_11.png",
+      "PackagePath": "staticwebassets\\Kanban\\menu_11.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\menu_12.png",
+      "PackagePath": "staticwebassets\\Kanban\\menu_12.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\menu_13.png",
+      "PackagePath": "staticwebassets\\Kanban\\menu_13.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\menu_14.png",
+      "PackagePath": "staticwebassets\\Kanban\\menu_14.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\menu_15.png",
+      "PackagePath": "staticwebassets\\Kanban\\menu_15.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\menu_16.png",
+      "PackagePath": "staticwebassets\\Kanban\\menu_16.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\menu_17.png",
+      "PackagePath": "staticwebassets\\Kanban\\menu_17.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\menu_18.png",
+      "PackagePath": "staticwebassets\\Kanban\\menu_18.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\menu_19.png",
+      "PackagePath": "staticwebassets\\Kanban\\menu_19.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\menu_20.png",
+      "PackagePath": "staticwebassets\\Kanban\\menu_20.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\menu_21.png",
+      "PackagePath": "staticwebassets\\Kanban\\menu_21.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\menu_22.png",
+      "PackagePath": "staticwebassets\\Kanban\\menu_22.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\menu_23.png",
+      "PackagePath": "staticwebassets\\Kanban\\menu_23.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\menu_24.png",
+      "PackagePath": "staticwebassets\\Kanban\\menu_24.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\Kanban\\menu_25.png",
+      "PackagePath": "staticwebassets\\Kanban\\menu_25.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\fonts\\syncfusion\\icons.eot",
+      "PackagePath": "staticwebassets\\fonts\\syncfusion\\icons.eot"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\fonts\\syncfusion\\icons.svg",
+      "PackagePath": "staticwebassets\\fonts\\syncfusion\\icons.svg"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\fonts\\syncfusion\\icons.ttf",
+      "PackagePath": "staticwebassets\\fonts\\syncfusion\\icons.ttf"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\fonts\\syncfusion\\icons.woff",
+      "PackagePath": "staticwebassets\\fonts\\syncfusion\\icons.woff"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\images\\ToggleButton.png",
+      "PackagePath": "staticwebassets\\images\\ToggleButton.png"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\open-iconic\\FONT-LICENSE",
+      "PackagePath": "staticwebassets\\open-iconic"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\open-iconic\\ICON-LICENSE",
+      "PackagePath": "staticwebassets\\open-iconic"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\open-iconic\\README.md",
+      "PackagePath": "staticwebassets\\open-iconic\\README.md"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "PackagePath": "staticwebassets\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "PackagePath": "staticwebassets\\open-iconic\\font\\fonts\\open-iconic.eot"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "PackagePath": "staticwebassets\\open-iconic\\font\\fonts\\open-iconic.otf"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "PackagePath": "staticwebassets\\open-iconic\\font\\fonts\\open-iconic.svg"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "PackagePath": "staticwebassets\\open-iconic\\font\\fonts\\open-iconic.ttf"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "PackagePath": "staticwebassets\\open-iconic\\font\\fonts\\open-iconic.woff"
+    },
+    {
+      "Id": "C:\\Users\\rafae\\Desktop\\UpSkill\\M4\\Solutions\\Syncfusion3Components\\Syncfusion3Components\\wwwroot\\syncfusion-blazor-icons.css",
+      "PackagePath": "staticwebassets\\syncfusion-blazor-icons.css"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.Syncfusion3Components.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.Syncfusion3Components.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.Syncfusion3Components.props",
+      "PackagePath": "build\\Syncfusion3Components.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.Syncfusion3Components.props",
+      "PackagePath": "buildMultiTargeting\\Syncfusion3Components.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.Syncfusion3Components.props",
+      "PackagePath": "buildTransitive\\Syncfusion3Components.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

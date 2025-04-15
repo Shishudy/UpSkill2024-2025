@@ -1,0 +1,4 @@
+1. Abrir Syncfusion3Components.sln no Visual Studio.
+2. Na console do Nuget correr o seguinte comando para criar a DB em SQL Server
+	dotnet ef database update --project MvcAPI
+3. Correr a solução através do IIS
