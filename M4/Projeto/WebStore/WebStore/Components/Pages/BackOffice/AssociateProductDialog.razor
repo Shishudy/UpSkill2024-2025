@@ -1,0 +1,172 @@
+﻿@inject CampaignService CampaignService
+@inject ProductService ProductService
+@inject DialogService DialogService
+@inject IJSRuntime JS
+@inject HttpClient HttpClient
+
+@rendermode InteractiveServer
+
+@if (isLoading)
+{
+    <div>Loading...</div>
+}
+else
+{
+    <h3>Select Products for Campaign</h3>
+
+    <RadzenDropDown @bind-Value="selectedCampaignId"
+                    Data="activeCampaigns"
+                    TextProperty="Name"
+                    ValueProperty="PkCampaign"
+                    Placeholder="Select a campaign"
+                    Style="width: 100%; margin-bottom: 1rem;" />
+
+    <div style="display: flex; gap: 2rem;">
+        <div style="flex: 1; border: 1px solid #ccc; padding: 1rem;">
+            <h4>Selected Products</h4>
+            @if (selectedProducts.Any())
+            {
+                @foreach (var item in selectedProducts)
+                {
+                    <RadzenCard Style="margin-bottom: 1rem;">
+                        <div style="display: flex; flex-direction: column;">
+                            <strong>@item.Product.Name</strong>
+                            <small>EAN: @item.Product.Ean</small>
+
+                            <RadzenNumeric TValue="int?" @bind-Value="item.CustomDiscount"
+                                           Placeholder="Custom Discount"
+                                           Style="width: 100%; margin-top: 0.5rem;" />
+
+                            <RadzenButton Text="Remove"
+                                          Icon="close"
+                                          ButtonStyle="ButtonStyle.Danger"
+                                          Click="@(() => RemoveSelectedProduct(item.Product.ProductId))"
+                                          Style="margin-top: 0.5rem;" />
+                        </div>
+                    </RadzenCard>
+                }
+            }
+            else
+            {
+                <p>No products selected.</p>
+            }
+        </div>
+
+        <div style="flex: 1; border: 1px solid #ccc; padding: 1rem;">
+            <h4>Available Products</h4>
+            @if (products.Any())
+            {
+                @foreach (var product in products)
+                {
+                    <RadzenCard Style="margin-bottom: 1rem;">
+                        <div style="display: flex; flex-direction: column;">
+                            <strong>@product.Name</strong>
+                            <small>EAN: @product.Ean</small>
+
+                            <RadzenButton Text="Add"
+                                          Icon="add_circle"
+                                          ButtonStyle="ButtonStyle.Secondary"
+                                          Click="@(() => AddProduct(product))"
+                                          Style="margin-top: 0.5rem;" />
+                        </div>
+                    </RadzenCard>
+                }
+            }
+            else
+            {
+                <p>No products available.</p>
+            }
+        </div>
+    </div>
+
+    <div style="margin-top: 2rem; border: 1px solid #ccc; padding: 1rem;">
+        <h4>Finalize Selection</h4>
+
+        <RadzenNumeric TValue="int" @bind-Value="baseDiscount"
+                       Placeholder="Base Discount"
+                       Style="width: 100%; margin-bottom: 1rem;" />
+
+        <RadzenButton Text="Finalize"
+                      Icon="check"
+                      ButtonStyle="ButtonStyle.Success"
+                      Click="@FinalizeSelectionAsync"
+                      Style="width: 100%;" />
+    </div>
+}
+
+@code {
+    [Parameter] public int CampaignId { get; set; }
+
+    private List<CampaignResponseDTO> activeCampaigns = new();
+    private List<ProductDTO> products = new();
+    private List<SelectedProductItem> selectedProducts = new();
+    private int selectedCampaignId = 0;
+    private int baseDiscount = 0;
+    private bool isLoading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            activeCampaigns = await CampaignService.GetActiveCampaignsAsync() ?? new();
+            products = await ProductService.GetProductDtoListAsync(
+                category: null,
+                filter: new FilterDTO { InStock = true },
+                search: null
+            ) ?? new();
+
+            products = products
+                .Where(p => !selectedProducts.Any(sp => sp.Product.ProductId == p.ProductId))
+                .ToList();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro ao carregar dados: {ex.Message}");
+        }
+
+        isLoading = false;
+        await InvokeAsync(StateHasChanged);
+    }
+
+    private void AddProduct(ProductDTO product)
+    {
+        if (!selectedProducts.Any(p => p.Product.ProductId == product.ProductId))
+        {
+            selectedProducts.Add(new SelectedProductItem
+                {
+                    Product = product,
+                    CustomDiscount = null
+                });
+
+            products.Remove(product);
+        }
+    }
+
+    private void RemoveSelectedProduct(int productId)
+    {
+        var item = selectedProducts.FirstOrDefault(p => p.Product.ProductId == productId);
+        if (item != null)
+        {
+            selectedProducts.Remove(item);
+            products.Add(item.Product);
+        }
+    }
+
+    private async Task FinalizeSelectionAsync()
+    {
+        if (selectedCampaignId == 0 || !selectedProducts.Any())
+        {
+            await JS.InvokeVoidAsync("alert", "Select a campaign and at least one product.");
+            return;
+        }
+        await JS.InvokeVoidAsync("alert", "Products selected successfully!");
+
+        DialogService.Close(true);
+    }
+
+    private class SelectedProductItem
+    {
+        public ProductDTO Product { get; set; } = new();
+        public int? CustomDiscount { get; set; }
+    }
+}

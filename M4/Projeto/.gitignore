@@ -1,0 +1,16 @@
+
+WebStore/.vs/
+
+WebStore/StoreAPI/bin/
+
+WebStore/StoreAPI/obj/
+
+WebStore/StoreLibrary/bin/
+
+WebStore/StoreLibrary/obj/
+
+WebStore/WebStore/bin/
+
+WebStore/WebStore/obj/
+
+WebStore/WebStore/WebStore.csproj.user

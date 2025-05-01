@@ -1,0 +1,82 @@
+﻿@page "/adicionarprodutos"
+@using StoreLibrary.DTOs.Product
+@inherits AdminProtectedPage
+@layout WebStore.Components.Layout.BackOffice.MainBackLayout
+@rendermode InteractiveServer
+
+@inject AddProductService ProductService
+@inject NotificationService NotificationService
+
+<h3>Adicionar Produto</h3>
+
+<p style="text-align: center; margin-bottom: 2rem;">
+    Preencha os seguintes campos: <strong>Nome</strong>, <strong>Descrição</strong>, <strong>Preço</strong>, <strong>Stock</strong>, <strong>EAN</strong>, <strong>ID da Imagem</strong> e <strong>ID da Categoria</strong> para adicionar um novo produto.
+</p>
+
+<div style="max-width: 600px; margin: auto;">
+    <RadzenTextBox @bind-Value="name" Placeholder="Nome do Produto" Style="width: 100%; margin-bottom: 1rem;" />
+    <RadzenTextBox @bind-Value="description" Placeholder="Descrição" Style="width: 100%; margin-bottom: 1rem;" />
+    <RadzenNumeric TValue="decimal" @bind-Value="price" Placeholder="Preço" Style="width: 100%; margin-bottom: 1rem;" />
+    <RadzenNumeric TValue="int" @bind-Value="stock" Placeholder="Stock" Style="width: 100%; margin-bottom: 1rem;" />
+    <RadzenTextBox @bind-Value="ean" Placeholder="EAN" Style="width: 100%; margin-bottom: 1rem;" />
+    <RadzenNumeric TValue="int" @bind-Value="imageId" Placeholder="ID da Imagem" Style="width: 100%; margin-bottom: 1rem;" />
+    <RadzenNumeric TValue="int" @bind-Value="categoryId" Placeholder="ID da Categoria" Style="width: 100%; margin-bottom: 1rem;" />
+
+    <RadzenButton Text="Adicionar Produto"
+                  Icon="add_circle"
+                  Style="width: 100%; margin-top: 1rem;"
+                  ButtonStyle="ButtonStyle.Success"
+                  Click="AdProduct" />
+</div>
+
+@code {
+    private string name;
+    private string description;
+    private decimal price;
+    private int stock;
+    private string ean;
+    private int imageId;
+    private int categoryId;
+
+    private async Task AdProduct()
+    {
+        var newProduct = new AddProductDTO
+            {
+                Name = name,
+                Description = description,
+                Price = (double)price, 
+                Stock = stock,
+                Ean = ean,
+                ImageId = imageId,
+                CategoryId = categoryId
+            };
+
+
+        var sucesso = await ProductService.AddProductAsync(newProduct);
+
+        if (sucesso)
+        {
+            NotificationService.Notify(new NotificationMessage
+                {
+                    Severity = NotificationSeverity.Success,
+                    Summary = "Produto adicionado com sucesso!",
+                    Duration = 4000
+                });
+
+            name = description = ean = string.Empty;
+            price = 0;
+            stock = 0;
+            imageId = 0;
+            categoryId = 0;
+        }
+        else
+        {
+            NotificationService.Notify(new NotificationMessage
+                {
+                    Severity = NotificationSeverity.Error,
+                    Summary = "Erro ao adicionar produto!",
+                    Duration = 4000
+                });
+        }
+    }
+}

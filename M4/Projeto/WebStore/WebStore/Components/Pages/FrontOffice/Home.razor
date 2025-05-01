@@ -1,0 +1,206 @@
+﻿@page "/"
+@inject NotificationService NotificationService
+@inject NavigationManager Navigation
+@inject ProductService ProductService
+@inject FavouriteService FavouriteService
+@inject SearchService SearchService
+@implements IDisposable
+@rendermode InteractiveServer
+
+<PageTitle>WebStore</PageTitle>
+
+@if (!string.IsNullOrEmpty(SearchService.SearchTerm))
+{
+	<p>Resultados da pesquisa por: @SearchService.SearchTerm</p>
+}
+else
+{
+	<RadzenStack class="rz-p-0 rz-p-md-12">
+		<RadzenCarousel @ref=carousel @bind-SelectedIndex="@selectedIndex" Auto="false" AllowPaging="true"
+						Style="height: 400px;" PagerPosition="PagerPosition.Bottom" PagerOverlay="true">
+			<Items>
+				<RadzenCarouselItem>
+					<RadzenImage Path="https://cdn.printnetwork.com/production/assets/5966561450122033bd4456f8/imageLocker/blog-description/blog/sales_banners.jpg" class="rz-w-100" />
+				</RadzenCarouselItem>
+				<RadzenCarouselItem>
+					<RadzenImage Path="https://img.freepik.com/free-vector/flat-horizontal-sale-banner-template-with-photo_23-2149000923.jpg" class="rz-w-100" />
+				</RadzenCarouselItem>
+			</Items>
+		</RadzenCarousel>
+	</RadzenStack>
+}
+
+<div class="product-list-container">
+	@if (ProductList == null)
+	{
+		<p>A carregar...</p>
+	}
+	else
+	{
+		<div class="products-grid">
+			@foreach (var product in ProductList)
+			{
+				<RadzenCard class="product-card" @onclick="@(() => GoToProductPage(product.Ean))">
+					<RadzenImage Path="https://dn721803.ca.archive.org/0/items/placeholder-image//placeholder-image.jpg" AlternateText="@product.MainImage.Name"
+								 Style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px;" />
+
+					<div class="product-details">
+						<RadzenText TextStyle="TextStyle.Subtitle1" class="rz-font-bold">@product.Name</RadzenText>
+						<RadzenText TextStyle="TextStyle.Caption" class="rz-text-muted">EAN: @product.Ean</RadzenText>
+						<RadzenText TextStyle="TextStyle.Body2">
+							@(product.Description.Length > 50 ? product.Description.Substring(0, 50) + "..." : product.Description)
+						</RadzenText>
+						<RadzenText TextStyle="TextStyle.Body2" class="rz-mt-2">
+							<b>@(product.InStock ? "✅ Em stock!" : "❌ Sem stock")</b>
+						</RadzenText>
+
+						<div class="price-section">
+							@if (product.Discount > 0)
+							{
+								<span class="old-price">@product.Price.ToString("C2")</span>
+								<span class="discounted-price">@((product.Price * (1 - product.Discount / 100)).ToString("C2"))</span>
+							}
+							else
+							{
+								<span class="normal-price">@product.Price.ToString("C2")</span>
+							}
+						</div>
+
+						<div class="action-buttons">
+							<RadzenButton Click="@(() => ToggleFavorite(product))" Size="ButtonSize.Small" @onclick:stopPropagation Icon="favorite"
+										  Style="background-color: #FFC107; color: white;" />
+							<RadzenButton Click="AddToCart" Size="ButtonSize.Small" @onclick:stopPropagation Icon="shopping_cart"
+										  Style="background-color: #4CAF50; color: white;" />
+						</div>
+					</div>
+				</RadzenCard>
+			}
+		</div>
+	}
+</div>
+
+<style>
+	.product-list-container {
+		padding: 2rem;
+	}
+
+	.products-grid {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 2rem;
+		justify-content: center;
+		max-height: 90vh;
+		overflow-y: auto;
+	}
+
+	.product-card {
+		width: 300px;
+		flex: 0 0 calc(33.333% - 2rem);
+		cursor: pointer;
+		padding: 1rem;
+		border-radius: 12px;
+		transition: transform 0.2s;
+	}
+
+		.product-card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+		}
+
+	.product-details {
+		margin-top: 1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.price-section {
+		margin-top: 1rem;
+		font-size: 1.2rem;
+	}
+
+	.old-price {
+		text-decoration: line-through;
+		color: gray;
+		font-size: 1rem;
+		margin-right: 0.5rem;
+	}
+
+	.discounted-price {
+		color: #d32f2f;
+		font-weight: bold;
+		font-size: 1.4rem;
+	}
+
+	.normal-price {
+		font-weight: bold;
+		font-size: 1.4rem;
+	}
+
+	.action-buttons {
+		margin-top: 1rem;
+		display: flex;
+		gap: 0.5rem;
+	}
+
+	.filled-icon {
+		font-variation-settings: 'FILL' 1;
+	}
+</style>
+
+@code {
+	RadzenCarousel carousel;
+
+	int selectedIndex;
+
+	public List<ProductDTO> ProductList;
+
+	public FilterDTO ProductFilter = new FilterDTO
+	{
+		MinPrice = null,
+		MaxPrice = null,
+		InStock = null
+	};
+
+	public SortDTO Sort = new SortDTO
+	{
+		SortBy = SortOption.None
+	};
+
+	bool responsive = true;
+
+	protected override async Task OnInitializedAsync()
+	{
+		SearchService.SearchTriggered += OnSearchTriggered;
+
+		ProductList = await ProductService.GetProductDtoListAsync(search: SearchService.SearchTerm);
+	}
+
+	private async void OnSearchTriggered(string searchTerm)
+	{
+		ProductList = await ProductService.GetProductDtoListAsync(search: searchTerm);
+		StateHasChanged();
+	}
+
+	private void GoToProductPage(string ean)
+	{
+		Navigation.NavigateTo($"/products/product/{ean}");
+	}
+
+	private async Task AddToCart()
+	{
+		// TODO: Add to cart logic
+	}
+
+	private async void ToggleFavorite(ProductDTO product)
+	{
+		string response = await FavouriteService.UpdateFavourite(product.ProductId);
+
+		product.IsFavorite = !product.IsFavorite;
+	}
+
+	public void Dispose()
+	{
+		SearchService.SearchTriggered -= OnSearchTriggered;
+	}
+}

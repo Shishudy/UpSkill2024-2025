@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "Project",
+    "Projects": [
+      {
+        "Path": "WebStore\\WebStore.csproj",
+        "Action": "Start",
+        "DebugTarget": "http"
+      },
+      {
+        "Path": "StoreAPI\\StoreAPI.csproj",
+        "Action": "Start",
+        "DebugTarget": "http"
+      }
+    ]
+  }
+]

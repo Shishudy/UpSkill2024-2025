@@ -1,0 +1,215 @@
+﻿@page "/products/product/{Ean}"
+@inject ProductService ProductService
+@inject FavouriteService FavouriteService
+@inject SearchService SearchService
+@inject NavigationManager Navigation
+@implements IDisposable
+@rendermode InteractiveServer
+
+@if (ThisProduct == null)
+{
+	<p>A carregar produto...</p>
+}
+else
+{
+	<div class="product-page-container">
+		<div class="product-content">
+			<RadzenImage Path="@ThisProduct.MainImage.PathImg"
+						 AlternateText="@ThisProduct.MainImage.Name"
+						 Style="width: 100%; max-width: 500px; height: auto; border-radius: 10px;" />
+
+			@if (ThisProduct.ImageDTOList != null && ThisProduct.ImageDTOList.Any())
+			{
+				<div class="product-gallery">
+					@foreach (var img in ThisProduct.ImageDTOList)
+					{
+						<RadzenImage Path="@img.PathImg" AlternateText="@img.Name"
+									 Style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;" />
+					}
+				</div>
+			}
+		</div>
+
+		<div class="product-details">
+			<h1>@ThisProduct.Name</h1>
+			<h4 class="category">@ThisProduct.Category</h4>
+			<p class="ean">EAN: @ThisProduct.Ean</p>
+			<p class="description">@ThisProduct.Description</p>
+
+			<div class="stock-status">
+				@(ThisProduct.InStock ? "✅ Em stock!" : "❌ Sem stock")
+			</div>
+
+			<div class="price-section">
+				@if (ThisProduct.Discount > 0)
+				{
+					<span class="old-price">@ThisProduct.Price.ToString("C2")</span>
+					<span class="discounted-price">@((ThisProduct.Price * (1 - ThisProduct.Discount / 100)).ToString("C2"))</span>
+				}
+				else
+				{
+					<span class="normal-price">@ThisProduct.Price.ToString("C2")</span>
+				}
+			</div>
+
+			<div class="action-buttons">
+				<RadzenButton Click="ToggleFavorite" Icon="favorite" Style="background-color: #FFC107; color: white;" />
+				<RadzenButton Click="AddToCart" Icon="shopping_cart" Style="background-color: #4CAF50; color: white;" />
+			</div>
+		</div>
+	</div>
+
+	@if (ThisProduct.ReviewDTOList != null && ThisProduct.ReviewDTOList.Any())
+	{
+		<div class="reviews-section">
+			<h3>Avaliações:</h3>
+			@foreach (var review in ThisProduct.ReviewDTOList)
+			{
+				<div class="review-card">
+					<p><b>Data:</b> @review.ReviewDate.ToShortDateString()</p>
+					<p><b>Estrelas:</b> @(new string('⭐', @review.Stars))</p>
+					<p><b>Comentário:</b> @review.Comment</p>
+
+					@if (review.ImageDTOList != null && review.ImageDTOList.Any())
+					{
+						<div class="review-gallery">
+							@foreach (var reviewImg in review.ImageDTOList)
+							{
+								<RadzenImage Path="@reviewImg.PathImg" AlternateText="@reviewImg.Name"
+											 Style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;" />
+							}
+						</div>
+					}
+				</div>
+			}
+		</div>
+	}
+}
+
+<style>
+	.product-page-container {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 3rem;
+		padding: 2rem;
+	}
+
+	.product-content {
+		flex: 1;
+		min-width: 300px;
+	}
+
+	.product-gallery {
+		margin-top: 1rem;
+		display: flex;
+		gap: 0.5rem;
+	}
+
+	.product-details {
+		flex: 1;
+		min-width: 300px;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.category {
+		color: #666;
+		font-size: 1.2rem;
+	}
+
+	.ean {
+		font-size: 0.9rem;
+		color: gray;
+	}
+
+	.description {
+		font-size: 1rem;
+		margin-top: 0.5rem;
+	}
+
+	.stock-status {
+		margin-top: 1rem;
+		font-weight: bold;
+	}
+
+	.price-section {
+		margin-top: 1rem;
+		font-size: 1.5rem;
+		font-weight: bold;
+	}
+
+	.old-price {
+		text-decoration: line-through;
+		color: gray;
+		margin-right: 1rem;
+		font-size: 1.2rem;
+	}
+
+	.discounted-price {
+		color: #d32f2f;
+		font-size: 1.8rem;
+	}
+
+	.normal-price {
+		font-size: 1.8rem;
+		color: #333;
+	}
+
+	.action-buttons {
+		margin-top: 2rem;
+		display: flex;
+		gap: 1rem;
+	}
+
+	.reviews-section {
+		margin: 3rem 2rem;
+	}
+
+	.review-card {
+		border: 1px solid #ddd;
+		border-radius: 10px;
+		padding: 1rem;
+		margin-top: 1rem;
+	}
+
+	.review-gallery {
+		display: flex;
+		gap: 0.5rem;
+		margin-top: 0.5rem;
+	}
+</style>
+
+@code {
+	[Parameter]
+	public string Ean { get; set; }
+
+	public ProductPageDTO ThisProduct;
+
+	protected override async Task OnInitializedAsync()
+	{
+		SearchService.SearchTriggered += OnSearchTriggered;
+
+		ThisProduct = await ProductService.GetProductPageDtoAsync(Ean);
+	}
+
+	private async void OnSearchTriggered(string searchTerm)
+	{
+		Navigation.NavigateTo($"/");
+	}
+	
+	private async Task ToggleFavorite()
+	{
+		string response = await FavouriteService.UpdateFavourite(ThisProduct.ProductId);
+	}
+
+	private void AddToCart()
+	{
+		// TODO: Implement Add to Cart logic
+	}
+
+	public void Dispose()
+	{
+		SearchService.SearchTriggered -= OnSearchTriggered;
+	}
+}

@@ -1,0 +1,93 @@
+﻿@inject HttpClient Http
+@inject CardService CardService
+
+@page "/finalizarcompra"
+@rendermode InteractiveServer
+
+<RadzenRow Gap="0.5rem" class="rz-p-0 rz-p-lg-4">
+    <RadzenColumn Size="12" SizeMD="6">
+        <RadzenStack>
+            <RadzenFieldset Text="Purchase Info">
+                <RadzenStack Gap="1rem">
+                    <RadzenRow AlignItems="AlignItems.Center">
+                        <RadzenColumn Size="12" SizeMD="4">
+                            <RadzenLabel Text="Credit Card" Component="CardId" />
+                        </RadzenColumn>
+                        <RadzenColumn Size="12" SizeMD="8">
+                            <RadzenDropDown @bind-Value="order.PkCard" AllowClear="true" Placeholder="Select something" Data="@cards" Style="width: 100%;" TextProperty="Number" ValueProperty="PkCard" Name="CardId"></RadzenDropDown>
+                        </RadzenColumn>
+                    </RadzenRow>
+                    <RadzenRow AlignItems="AlignItems.Center">
+                        <RadzenColumn Size="12" SizeMD="4">
+                            <RadzenLabel Text="Card #" Component="CardNr"/>
+                        </RadzenColumn>
+                        <RadzenColumn Size="12" SizeMD="8">
+                            <RadzenNumeric @bind-Value="order.Number" Style="width: 100%;" Name="CardNr" />
+                        </RadzenColumn>
+                    </RadzenRow>
+                    <RadzenRow AlignItems="AlignItems.Center">
+                        <RadzenColumn Size="12" SizeMD="4">
+                            <RadzenLabel Text="CVV" Component="CardCVV" />
+                        </RadzenColumn>
+                        <RadzenColumn Size="12" SizeMD="8">
+                            <RadzenNumeric @bind-Value="order.Code" Style="width: 100%;" Name="CardCVV" Min="100" Max="999" />
+                        </RadzenColumn>
+                    </RadzenRow>
+                    <RadzenRow AlignItems="AlignItems.Center">
+                        <RadzenColumn Size="12" SizeMD="4">
+                            <RadzenLabel Text="Expiry Date" Component="ExpiryDate"/>
+                        </RadzenColumn>
+                        <RadzenColumn Size="12" SizeMD="8">
+                            <RadzenDatePicker @bind-Value="order.Expiration" Style="width: 100%;" Name="ExpiryDate" />
+                        </RadzenColumn>
+                    </RadzenRow>
+                    <RadzenRow AlignItems="AlignItems.Center">
+                        <RadzenColumn Size="12" SizeMD="4">
+                            <RadzenLabel Text="Cardholder" Component="CardHolder"/>
+                        </RadzenColumn>
+                        <RadzenColumn Size="12" SizeMD="8">
+                            <RadzenTextBox @bind-Value="order.Name" Style="width: 100%;" Name="CardHolder" />
+                        </RadzenColumn>
+                    </RadzenRow>
+                    <RadzenButton Text="Save" Click="SaveOrder" Style="margin-top: 1rem;" />
+                </RadzenStack>
+            </RadzenFieldset>
+        </RadzenStack>
+    </RadzenColumn>
+</RadzenRow>
+
+@code {
+
+    List<Card> cards = new List<Card>();
+
+    Card order = new Card();
+    string userId = "someUserId"; // Replace with actual user ID logic
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadCreditCards();
+    }
+    private async Task LoadCreditCards()
+    {
+        try
+        {
+            cards = await CardService.GetCardsByUserIDAsync(userId);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error fetching credit cards: {ex.Message}");
+        }
+    }
+
+    private async Task SaveOrder()
+    {
+        try
+        {
+            await CardService.AddCardToPurchaseAsync(userId, order);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error saving order: {ex.Message}");
+        }
+    }
+}

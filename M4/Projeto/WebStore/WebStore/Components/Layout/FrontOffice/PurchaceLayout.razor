@@ -1,0 +1,101 @@
+﻿@page "/purchaseLayout"
+@rendermode InteractiveServer
+@using WebStore.Components.Pages.FrontOffice.Purchase
+@inject IJSRuntime JSRuntime
+
+
+<div class="layout-container">
+    <!-- Header Section with Select Bar -->
+    <header class="layout-header rz-shadow-2">
+        <RadzenSelectBar @bind-Value="@selectedValue" TValue="int" Style="width: 100%;">
+            <Items>
+                @foreach (var dataItem in data)
+                {
+                    <RadzenSelectBarItem 
+                        Text="@dataItem.Name" 
+                        Value="@dataItem.Id" 
+                        Disabled="@(dataItem.IsDisabled.HasValue ? dataItem.IsDisabled.Value : false)" 
+                        Visible="@(dataItem.IsVisible.HasValue ? dataItem.IsVisible.Value : true)" />
+                }
+            </Items>
+        </RadzenSelectBar>
+        <RadzenSwitch @bind-Value="@isDarkMode" Change="@ToggleTheme" />
+        <span>@(isDarkMode ? "Dark Mode" : "Light Mode")</span>
+
+    </header>
+
+    <main class="layout-content rz-p-4">
+        @* Dynamically Render Components Based on Selected Value *@
+        @if (selectedValue == 1)
+        {
+            <ConfirmarCart />
+        }
+        else if (selectedValue == 2)
+        {
+            <FinalizarCompra />
+        }
+        else if (selectedValue == 3)
+        {
+            <Pagamento />
+        }
+        else
+        {
+            <p>Please select an option from the Select Bar.</p>
+        }
+
+        @* Example Button to Change Content Dynamically *@
+        @* <RadzenButton Text="Show Additional Content" Click="@ShowAdditionalContent" />
+        @if (showAdditionalContent)
+        {
+            <AdditionalComponent />
+        } *@
+    </main>
+
+</div>
+
+
+
+@code {
+    int selectedValue = 2;
+
+    public class MyObject
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public bool? IsDisabled { get; set; }
+        public bool? IsVisible { get; set; }
+    }
+
+	    IEnumerable<MyObject> data = new MyObject[]
+    {
+        new MyObject() {
+            Id = 1,
+            Name = "Validar Compra"
+        },
+        new MyObject() {
+            Id = 2,
+            Name = "Método de Envio",
+            IsDisabled = false,
+        },
+        new MyObject() {
+            Id = 3,
+            Name = "Pagamento",
+            IsDisabled = false,
+        },
+        new MyObject() {
+            Id = 4,
+            Name = "Confirmação",
+            IsDisabled = true,
+        },
+    };
+    
+    bool isDarkMode = false;
+    async Task ToggleTheme(bool value)
+    {
+        isDarkMode = value ;
+        var themeClass = isDarkMode ? "dark-theme" : "light-theme";
+
+        // Use the injected JSRuntime instance to call JavaScript
+        await JSRuntime.InvokeVoidAsync("eval", $"document.body.className = '{themeClass}'");
+    }
+}

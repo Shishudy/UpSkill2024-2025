@@ -1,0 +1,78 @@
+﻿@rendermode InteractiveServer
+@layout MainBackLayout
+@inject AuthenticationStateProvider AuthProvider
+@inject AuthService AuthService
+@inject NavigationManager Navigation
+
+<div style="padding: 4px;">
+    <RadzenButton Icon="menu"
+                  class="rz-button-icon-only"
+                  ButtonStyle="ButtonStyle.Light"
+                  Click="@ToggleSidebar" />
+</div>
+
+@if (sidebarVisible)
+{
+    <div @onclick="CloseSidebar"
+         style="position: fixed; top: 64px; left: 0; width: 100%; height: calc(100% - 64px);
+                background-color: rgba(0,0,0,0.3); z-index: 1000;">
+    </div>
+}
+
+<div class="@SidebarClass"
+     style="position: absolute; top: 64px; height: calc(100% - 64px); z-index: 1000; transition: transform 0.3s ease, width 0.3s ease;">
+    <RadzenSidebar Style="width: 250px; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+        <RadzenPanelMenu>
+            <RadzenPanelMenuItem Text="Home" Icon="home" Path="/adminhome" />
+            <RadzenPanelMenuItem Text="GerirContas" Icon="check_circle" Path="/gerircontas" />
+            <RadzenPanelMenuItem Text="AdicionarCampanhas" Icon="note_add" Path="/adicionarcampanhas" />
+			<RadzenPanelMenuItem Text="AdicionarProdutos" Icon="add_shopping_cart" Path="/adicionarprodutos" />
+			<RadzenPanelMenuItem Text="Adicionar Imagens" Icon="camera_enhance" Path="/insert-images" />
+            <RadzenPanelMenuItem Text="AdicionarAdmins" Icon="accessibility" Path="/addadmin" />
+        </RadzenPanelMenu>
+
+        @if (isAuthenticated)
+        {
+            <div style="padding: 1rem; border-top: 1px solid #ccc;">
+                <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                    <RadzenIcon Icon="account_circle" Style="font-size: 22px;" />
+                    <span>@userEmail</span>
+                </div>
+                <RadzenButton Text="Logout"
+                              Icon="logout"
+                              Style="width: 100%;"
+                              ButtonStyle="ButtonStyle.Danger"
+                              Click="Logout" />
+            </div>
+        }
+    </RadzenSidebar>
+</div>
+
+@code {
+    private bool sidebarVisible = false;
+    private bool isAuthenticated = false;
+    private string? userEmail;
+
+    private string SidebarClass => sidebarVisible ? "slide-in" : "slide-out";
+
+    private void ToggleSidebar() => sidebarVisible = !sidebarVisible;
+    private void CloseSidebar() => sidebarVisible = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity?.IsAuthenticated == true && user.IsInRole("Admin"))
+        {
+            userEmail = user.Identity.Name ?? "Administrador";
+            isAuthenticated = true;
+        }
+    }
+
+    private async Task Logout()
+    {
+        await AuthService.Logout();
+        Navigation.NavigateTo("/", true);
+    }
+}

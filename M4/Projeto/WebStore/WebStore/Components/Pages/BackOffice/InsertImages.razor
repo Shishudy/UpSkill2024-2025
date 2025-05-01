@@ -1,0 +1,103 @@
+﻿@page "/insert-images"
+@inject ImageService ImageService
+@inject NotificationService NotificationService
+@layout WebStore.Components.Layout.BackOffice.MainBackLayout
+@inherits AdminProtectedPage
+@rendermode InteractiveServer
+
+<h3>Inserir Nova Imagem</h3>
+
+<EditForm Model="@uploadModel" OnValidSubmit="UploadImage">
+	<DataAnnotationsValidator />
+	<ValidationSummary />
+
+	<div class="form-section">
+		<InputFile OnChange="HandleFileSelected" />
+	</div>
+
+	<div class="form-section">
+		<label>Nome da Imagem (opcional):</label>
+		<InputText @bind-Value="uploadModel.Name" class="form-control" />
+	</div>
+
+	<div class="form-section">
+		<label>Categoria:</label>
+		<InputSelect @bind-Value="uploadModel.Category" class="form-control">
+			<option value="">Escolha uma categoria</option>
+			@foreach (var category in Enum.GetValues<ImageCategory>())
+			{
+				<option value="@category">@category</option>
+			}
+		</InputSelect>
+	</div>
+
+	<div class="form-section">
+		<label>ID do Dono (Produto/Campanha/Review/User):</label>
+		<InputNumber @bind-Value="uploadModel.OwnerId" class="form-control" />
+	</div>
+
+	<RadzenButton Text="Carregar Imagem" Type="Submit" Style="margin-top: 1rem;" />
+
+	@if (!string.IsNullOrEmpty(uploadResult))
+	{
+		<p style="margin-top: 1rem; color: green;">@uploadResult</p>
+	}
+</EditForm>
+
+<style>
+	.form-section {
+		margin-bottom: 1rem;
+	}
+</style>
+
+@code {
+	private UploadImageModel uploadModel = new();
+	private IBrowserFile? selectedFile;
+	private string uploadResult = string.Empty;
+
+	private async Task HandleFileSelected(InputFileChangeEventArgs e)
+	{
+		selectedFile = e.File;
+	}
+
+	private async Task UploadImage()
+	{
+		if (selectedFile == null)
+		{
+			uploadResult = "Por favor selecione um arquivo.";
+			return;
+		}
+
+		if (string.IsNullOrEmpty(uploadModel.Category.ToString()) || uploadModel.OwnerId == 0)
+		{
+			uploadResult = "Categoria e ID do Dono são obrigatórios.";
+			return;
+		}
+
+		using var stream = selectedFile.OpenReadStream(maxAllowedSize: 10_000_000);
+
+		try
+		{
+			var response = await ImageService.UploadImageAsync(
+				category: uploadModel.Category,
+				ownerId: uploadModel.OwnerId,
+				fileStream: stream,
+				originalFileName: selectedFile.Name,
+				name: uploadModel.Name
+			);
+
+			uploadResult = response;
+		}
+		catch (Exception ex)
+		{
+			uploadResult = $"Erro ao enviar: {ex.Message}";
+		}
+	}
+
+	private class UploadImageModel
+	{
+		public string? Name { get; set; }
+		public ImageCategory Category { get; set; }
+		public int OwnerId { get; set; }
+	}
+}

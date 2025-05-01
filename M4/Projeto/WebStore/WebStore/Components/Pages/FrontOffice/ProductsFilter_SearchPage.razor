@@ -1,0 +1,100 @@
+﻿@page "/products"
+@inject NotificationService NotificationService;
+@inject NavigationManager Navigation
+@inject ProductService ProductService
+@inject FavouriteService FavouriteService
+@rendermode InteractiveServer
+
+<div id="ControlRegion">
+	<div class="product_list">
+		@if (ProductList == null)
+		{
+			<p>A carregar...</p>
+		}
+		else
+		{
+			<RadzenStack>
+				<RadzenCardGroup Responsive="@responsive">
+					@foreach (ProductDTO product in ProductList)
+					{
+						<RadzenCard class="rz-my-12 rz-mx-auto" Style="max-width: 420px">
+							<div @onclick="@(() => GoToProductPage(product.Ean))" style="cursor: pointer;">
+								<RadzenStack Orientation="Orientation.Vertical" JustifyContent="JustifyContent.Start" Gap="1rem" class="rz-p-4">
+									<RadzenImage Path="https://diamondpet.storage.googleapis.com/wp-content/uploads/2021/03/22094728/kitten-sitting-on-floor-031621.jpg"
+												 Style="width: 100px; height: 100px; border-radius: 10%;" />
+									<RadzenStack Gap="0">
+										<RadzenText TextStyle="TextStyle.Overline" class="rz-display-flex rz-mt-2 rz-my-0">@product.Name</RadzenText>
+										<RadzenText TextStyle="TextStyle.Body1"><b>@product.Description</b></RadzenText>
+										<RadzenText TextStyle="TextStyle.Overline" class="rz-display-flex rz-mt-4 rz-mb-0">@product.Ean</RadzenText>
+										<RadzenText TextStyle="TextStyle.Body1"><b>@(product.InStock ? "Em stock!" : "Sem stock!")</b></RadzenText>
+									</RadzenStack>
+								</RadzenStack>
+							</div>
+							<RadzenStack Orientation="Orientation.Vertical" JustifyContent="JustifyContent.End" Gap="0" class="rz-p-0 rz-p-md-6 rz-p-lg-12">
+								<RadzenButton Click="@(() => ToggleFavorite(product))" @onclick:stopPropagation>
+									<RadzenIcon Icon="favorite"
+												class=@(product.IsFavorite ? "filled-icon" : "")
+												IconColor="@Colors.Warning" />
+								</RadzenButton>
+								<RadzenButton Click="AddToCart" @onclick:stopPropagation>
+									<RadzenIcon Icon="shopping_cart" IconColor="@Colors.White" />
+								</RadzenButton>
+							</RadzenStack>
+						</RadzenCard>
+					}
+				</RadzenCardGroup>
+			</RadzenStack>
+		}
+	</div>
+</div>
+
+<style>
+	.filled-icon {
+		font-variation-settings: 'FILL' 1;
+	}
+</style>
+
+@code {
+	public List<ProductDTO> ProductList;
+
+	public FilterDTO ProductFilter;
+
+	public SortDTO Sort;
+
+	RadzenCarousel carousel;
+
+	int selectedIndex;
+
+	bool responsive = true;
+
+	protected override async Task OnInitializedAsync()
+	{
+		ProductFilter = new FilterDTO
+		{
+			MinPrice = null,
+			MaxPrice = null,
+			InStock = null
+		};
+		ProductList = await ProductService.GetProductDtoListAsync(ProductFilter, null);
+	}
+
+	private void GoToProductPage(string ean)
+	{
+		Navigation.NavigateTo($"/products/product/{ean}");
+	}
+
+	private async Task AddToCart()
+	{
+		return;
+	}
+
+	private async void ToggleFavorite(ProductDTO product)
+	{
+		string response = await FavouriteService.UpdateFavourite(product.ProductId);
+
+		if (product.IsFavorite == true)
+			product.IsFavorite = false;
+		else
+			product.IsFavorite = true;
+	}
+}

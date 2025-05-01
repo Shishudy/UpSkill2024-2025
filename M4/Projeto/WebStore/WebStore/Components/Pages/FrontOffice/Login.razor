@@ -1,0 +1,70 @@
+﻿@page "/login"
+@inject NavigationManager NavigationManager
+@inject AuthService AuthService
+@inject AuthenticationStateProvider AuthProvider
+@inject HttpClient HttpClient
+
+@rendermode InteractiveServer
+
+<div class="login-modal">
+    <h2>Login</h2>
+
+    <RadzenTextBox @bind-Value="email"
+                   Placeholder="Email"
+                   class="login-input"
+                   Style="width: 100%;" />
+
+    <RadzenPassword @bind-Value="password"
+                    Placeholder="Passe"
+                    class="login-input"
+                    Style="width: 100%;" />
+
+    <RadzenButton Text="Entrar"
+                  Click="HandleLogin"
+                  Style="width: 100%; margin-top: 1rem;"
+                  ButtonStyle="ButtonStyle.Primary" />
+
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <div style="color: red; margin-top: 1rem;">@errorMessage</div>
+    }
+
+    <div style="margin-top: 1.5rem;">
+        <span>Não tem conta?</span>
+        <a href="register" style="margin-left: 5px; color: #007bff; text-decoration: underline; cursor: pointer;">
+            Criar conta
+        </a>
+    </div>
+
+  <div class="social-login">
+    <a href="http://localhost:5125/api/auth/externallogin?provider=Google&returnUrl=http://localhost:5293/login">
+        <button class="btn-google"><i class="fab fa-google"></i></button>
+    </a>
+</div>
+
+</div>
+
+@code {
+    private string email;
+    private string password;
+    private string errorMessage;
+
+    private async Task HandleLogin()
+    {
+        var result = await AuthService.Login(new LoginModel
+            {
+                Email = email,
+                Password = password
+            });
+
+        if (result == "success")
+        {           
+            StateHasChanged();
+            NavigationManager.NavigateTo("/");
+        }
+        else
+        {
+            errorMessage = "Email ou senha inválidos.";
+        }
+    }
+}

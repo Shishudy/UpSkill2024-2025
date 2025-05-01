@@ -1,0 +1,33 @@
+﻿@page "/google-callback"
+@inject NavigationManager NavigationManager
+@inject CustomAuthStateProvider AuthProvider
+@rendermode InteractiveServer
+@inject HttpClient HttpClient
+
+<p>Finalizando login com o Google...</p>
+
+@code {
+    private bool _handled = false;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && !_handled)
+        {
+            _handled = true;
+
+            var uri = NavigationManager.ToAbsoluteUri(NavigationManager.Uri);
+            var query = System.Web.HttpUtility.ParseQueryString(uri.Query);
+            var token = query["token"];
+
+            if (!string.IsNullOrEmpty(token))
+            {
+                await AuthProvider.SetToken(token);     
+                AuthProvider.Notify();                  
+                await Task.Delay(100);                 
+            }
+
+            NavigationManager.NavigateTo("/", true);    
+        }
+    }
+}
+

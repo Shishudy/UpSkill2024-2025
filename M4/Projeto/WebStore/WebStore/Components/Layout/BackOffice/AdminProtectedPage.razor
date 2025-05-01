@@ -1,0 +1,28 @@
+﻿@inject AuthenticationStateProvider AuthProvider
+@inject NavigationManager Navigation
+
+@code {
+    private bool _checkedAuth;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && !_checkedAuth)
+        {
+            _checkedAuth = true;
+
+            var authState = await AuthProvider.GetAuthenticationStateAsync();
+            var user = authState.User;
+
+            Console.WriteLine("AdminProtectedPage - IsAuthenticated: " + user.Identity?.IsAuthenticated);
+
+            foreach (var claim in user.Claims)
+                Console.WriteLine($"Claim: {claim.Type} = {claim.Value}");
+
+            if (!user.Identity.IsAuthenticated || !user.IsInRole("Admin"))
+            {
+                Console.WriteLine("Redirecionando: não é admin");
+                Navigation.NavigateTo("/");
+            }
+        }
+    }
+}

@@ -1,0 +1,82 @@
+﻿@page "/addadmin"
+@inject NotificationService NotificationService
+@inject AuthService AuthService
+@inherits AdminProtectedPage
+@layout WebStore.Components.Layout.BackOffice.MainBackLayout
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
+@inject HttpClient HttpClient
+
+
+
+        <div class="login-modal">
+            <h2>Adicionar Admin</h2>
+
+            <RadzenTextBox @bind-Value="email" Placeholder="Email" Style="width:100%" />
+            <RadzenPassword @bind-Value="password" Placeholder="Senha" Style="width:100%" />
+            <RadzenPassword @bind-Value="confirmPassword" Placeholder="Confirmar Senha" Style="width:100%" />
+
+            <RadzenButton Text="Criar Admin"
+                          Click="HandleRegister"
+                          Style="width:100%; margin-top:1rem;"
+                          ButtonStyle="ButtonStyle.Warning" />
+
+            @if (!string.IsNullOrEmpty(errorMessage))
+            {
+                <div style="color:red; margin-top:1rem;">@errorMessage</div>
+            }
+
+            <div style="margin-top: 1.5rem;">
+                <a href="/adminhome" style="color: #007bff;">Voltar</a>
+            </div>
+        </div>
+
+
+@code {
+    private string email;
+    private string password;
+    private string confirmPassword;
+    private string errorMessage;
+
+    private async Task HandleRegister()
+    {
+        errorMessage = string.Empty;
+
+        if (password != confirmPassword)
+        {
+            errorMessage = "As senhas não coincidem.";
+            return;
+        }
+
+        var result = await AuthService.Register(new RegisterModel
+            {
+                Email = email,
+                Password = password,
+                ConfirmPassword = confirmPassword,
+                Role = "Admin"
+            });
+
+        if (result is string success && success == "success")
+        {
+            NotificationService.Notify(new NotificationMessage
+                {
+                    Severity = NotificationSeverity.Success,
+                    Summary = "Admin criado com sucesso!",
+                    Detail = "Redirecionando...",
+                    Duration = 3000
+                });
+
+            await Task.Delay(3000); 
+            NavigationManager.NavigateTo("/adminhome");
+        }
+        else if (result is List<string> errors)
+        {
+            errorMessage = string.Join(" ", errors);
+        }
+        else
+        {
+            errorMessage = "Erro ao criar admin.";
+        }
+    }
+ }
+ 

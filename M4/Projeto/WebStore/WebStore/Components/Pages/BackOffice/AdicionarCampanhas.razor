@@ -1,0 +1,88 @@
+﻿@page "/adicionarcampanhas"
+@inherits AdminProtectedPage
+@layout WebStore.Components.Layout.BackOffice.MainBackLayout
+@rendermode InteractiveServer
+@inject CampaignService CampaignService
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JS
+@inject DialogService DialogService
+@inject HttpClient HttpClient
+
+<h2 style="margin-left: 2rem;">Create Campaign</h2>
+
+<div style="max-width: 900px; margin-left: 2rem; padding: 1rem;">
+    <RadzenTextBox @bind-Value="campaignName" Placeholder="Campaign Name"
+                   Style="width: 100%; margin-bottom: 1rem;" />
+
+    <RadzenDatePicker @bind-Value="startDate" Placeholder="Start Date"
+                      Style="width: 100%; margin-bottom: 1rem;" />
+
+    <RadzenDatePicker @bind-Value="endDate" Placeholder="End Date"
+                      Style="width: 100%; margin-bottom: 1rem;" />
+
+    <RadzenButton Text="Save Campaign"
+                  Icon="save"
+                  ButtonStyle="ButtonStyle.Primary"
+                  Click="@SaveCampaignAsync"
+                  Style="width: 100%; margin-bottom: 1rem;" />
+
+    <RadzenButton Text="Associate Products"
+                  Icon="add_circle_outline"
+                  ButtonStyle="ButtonStyle.Light"
+                  Click="@OpenAssociateDialog"
+                  Style="width: 100%;" />
+</div>
+
+@code {
+    private string? campaignName;
+    private DateTime? startDate;
+    private DateTime? endDate;
+    private int createdCampaignId = 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+
+    }
+
+    private async Task SaveCampaignAsync()
+    {
+        if (string.IsNullOrWhiteSpace(campaignName) || !startDate.HasValue || !endDate.HasValue)
+        {
+            await JS.InvokeVoidAsync("alert", "Please fill in all fields.");
+            return;
+        }
+
+        var dto = new CreateCampaignDTO
+            {
+                Name = campaignName,
+                DateStart = DateOnly.FromDateTime(startDate.Value),
+                DateEnd = DateOnly.FromDateTime(endDate.Value)
+            };
+
+        var result = await CampaignService.CreateCampaignAsync(dto);
+
+        if (!string.IsNullOrEmpty(result) && result != "0")
+        {
+            createdCampaignId = int.Parse(result);
+            await JS.InvokeVoidAsync("alert", $"Campaign successfully created! ID: {createdCampaignId}");
+        }
+        else
+        {
+            await JS.InvokeVoidAsync("alert", "Error while creating the campaign.");
+        }
+    }
+
+    private async Task OpenAssociateDialog()
+    {
+        var result = await DialogService.OpenAsync<AssociateProductDialog>(
+            "Associate Products",
+            new Dictionary<string, object> { { "CampaignId", createdCampaignId } },
+            new DialogOptions { Width = "800px", Height = "600px", Resizable = true, Draggable = true }
+        );
+
+        if (result is bool success && success)
+        {
+            await JS.InvokeVoidAsync("alert", "Products successfully associated!");
+        }
+    }
+}

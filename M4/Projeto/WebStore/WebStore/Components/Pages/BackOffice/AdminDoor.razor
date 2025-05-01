@@ -1,0 +1,65 @@
+﻿@page "/admindoor"
+@inject AuthService AuthService
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
+@inject HttpClient HttpClient
+
+
+<div class="login-modal">
+    <h2>Admin Login</h2>
+
+    <RadzenTextBox @bind-Value="email"
+                   Placeholder="Email"
+                   class="login-input"
+                   Style="width: 100%;" />
+
+    <RadzenPassword @bind-Value="password"
+                    Placeholder="Senha"
+                    class="login-input"
+                    Style="width: 100%;" />
+
+    <RadzenButton Text="Entrar"
+                  Click="HandleLogin"
+                  Style="width: 100%; margin-top: 1rem;"
+                  ButtonStyle="ButtonStyle.Primary" />
+
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <div class="text-danger" style="margin-top: 1rem;">@errorMessage</div>
+    }
+</div>
+
+@code {
+    private string email;
+    private string password;
+    private string errorMessage;
+
+    private async Task HandleLogin()
+    {
+        var result = await AuthService.Login(new LoginModel
+            {
+                Email = email,
+                Password = password
+            });
+
+        if (result == "success")
+        {
+            var authState = await AuthService.GetAuthState();
+            var user = authState.User;
+
+            if (user.IsInRole("Admin"))
+            {
+                NavigationManager.NavigateTo("/adminhome");
+            }
+            else
+            {
+                errorMessage = "Apenas administradores podem aceder ao backoffice.";
+                await AuthService.Logout();
+            }
+        }
+        else
+        {
+            errorMessage = "Credenciais inválidas.";
+        }
+    }
+}

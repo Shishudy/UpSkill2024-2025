@@ -1,0 +1,88 @@
+﻿@inject NavigationManager NavigationManager
+@inject AuthenticationStateProvider AuthProvider
+@implements IDisposable
+@rendermode InteractiveServer
+
+<div style="position: absolute; top: 10px; right: 10px;">
+    <RadzenButton Icon="shopping_cart"
+                  class="rz-button-icon-only"
+                  ButtonStyle="ButtonStyle.Light"
+                  Click="@ToggleCart" />
+</div>
+
+@if (cartVisible)
+{
+    <div @onclick="CloseCart"
+         style="position: absolute; top: 64px; left: 0; width: 100%; height: calc(100% - 64px);
+                background-color: rgba(0,0,0,0.3); z-index: 1000;">
+    </div>
+}
+
+<div class="@CartClass"
+     style="position: fixed; top: 64px; right: 0; height: calc(100% - 64px); z-index: 1001;
+            transition: transform 0.3s ease, width 0.3s ease;">
+
+    <div style="width: 300px; height: 100%; background-color: black;
+                display: flex; flex-direction: column; justify-content: space-between; color: white;">
+        <div style="padding: 1rem; flex: 1;">
+            <h4 style="display: flex; align-items: center; gap: 8px;">
+                <i class="material-icons">shopping_cart</i> Carrinho
+            </h4>
+
+            @if (isAuthenticated)
+            {
+                <p style="margin-top: 10px;">Você ainda não adicionou itens.</p>
+            }
+            else
+            {
+                <p style="margin-top: 10px; color: red;">Por favor, faça login antes de adicionar produtos ao carrinho.</p>
+            }
+        </div>
+
+        @if (isAuthenticated)
+        {
+            <div style="padding: 1rem;">
+                <RadzenButton Text="Finalizar Compra"
+                              Icon="check_circle"
+                              ButtonStyle="ButtonStyle.Danger"
+                              Style="width: auto;"
+                              Click="@(() => NavigationManager.NavigateTo("/purchaseLayout"))" />
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    private bool cartVisible = false;
+    private bool isAuthenticated = false;
+
+    private string CartClass => cartVisible ? "slide-in" : "slide-out";
+
+    private void ToggleCart() => cartVisible = !cartVisible;
+    private void CloseCart() => cartVisible = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        AuthProvider.AuthenticationStateChanged += OnAuthStateChanged;
+        await CheckAuth();
+    }
+
+    private async Task CheckAuth()
+    {
+        var authState = await AuthProvider.GetAuthenticationStateAsync();
+        isAuthenticated = authState.User.Identity?.IsAuthenticated ?? false;
+        StateHasChanged(); 
+    }
+
+    private async void OnAuthStateChanged(Task<AuthenticationState> task)
+    {
+        var authState = await task;
+        isAuthenticated = authState.User.Identity?.IsAuthenticated ?? false;
+        StateHasChanged(); 
+    }
+
+    public void Dispose()
+    {
+        AuthProvider.AuthenticationStateChanged -= OnAuthStateChanged;
+    }
+}

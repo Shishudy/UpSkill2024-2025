@@ -1,0 +1,69 @@
+/* .layout-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* .layout-header {
+    background-color: var(--rz-primary);
+    color: white;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+} */
+
+.layout-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    background-color: var(--rz-light);
+} */
+
+/* Light Theme (Default) */
+body.light-theme {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --header-background: #f8f9fa;
+    --header-text-color: #000000;
+    --button-background: #007bff;
+    --button-text-color: #ffffff;
+}
+
+/* Dark Theme */
+body.dark-theme {
+    --background-color: #121212;
+    --text-color: #ffffff;
+    --header-background: #1e1e1e;
+    --header-text-color: #ffffff;
+    --button-background: #444444;
+    --button-text-color: #ffffff;
+}
+
+/* Apply Variables */
+.layout-container {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.layout-header {
+    background-color: var(--header-background);
+    color: var(--header-text-color);
+    padding: 1rem;
+}
+
+.layout-content {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+button {
+    background-color: var(--button-background);
+    color: var(--button-text-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}

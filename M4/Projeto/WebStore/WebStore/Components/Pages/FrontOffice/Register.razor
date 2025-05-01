@@ -1,0 +1,80 @@
+﻿@page "/register"
+@inject AuthService AuthService
+@inject NavigationManager NavigationManager
+@inject HttpClient HttpClient
+
+@rendermode InteractiveServer
+
+<div class="login-modal">
+    <h2>Registar</h2>
+
+    <RadzenTextBox @bind-Value="email"
+                   Placeholder="Email"
+                   class="login-input"
+                   Style="width: 100%;" />
+
+    <RadzenPassword @bind-Value="password"
+                    Placeholder="Senha"
+                    class="login-input"
+                    Style="width: 100%;" />
+
+    <RadzenPassword @bind-Value="confirmPassword"
+                    Placeholder="Confirmar senha"
+                    class="login-input"
+                    Style="width: 100%;" />
+
+    <RadzenButton Text="Criar conta"
+                  Click="HandleRegister"
+                  Style="width: 100%; margin-top: 1rem;"
+                  ButtonStyle="ButtonStyle.Success" />
+
+    @if (errorMessages.Any())
+    {
+        <ul class="text-danger" style="margin-top: 1rem;">
+            @foreach (var msg in errorMessages)
+            {
+                <li>@msg</li>
+            }
+        </ul>
+    }
+
+    <div style="margin-top: 1.5rem;">
+        <span>Já tem uma conta?</span>
+        <a href="/login" style="margin-left: 5px; color: #007bff; text-decoration: underline; cursor: pointer;">
+            Entrar
+        </a>
+    </div>
+</div>
+
+@code {
+    private string email;
+    private string password;
+    private string confirmPassword;
+    private List<string> errorMessages = new();
+
+    private async Task HandleRegister()
+    {
+        errorMessages.Clear();
+
+        var result = await AuthService.Register(new RegisterModel
+        {
+            Email = email,
+            Password = password,
+            ConfirmPassword = confirmPassword,
+            Role = "User"
+        });
+
+        if (result is string success && success == "success")
+        {
+            NavigationManager.NavigateTo("/login");
+        }
+        else if (result is List<string> errors)
+        {
+            errorMessages = errors;
+        }
+        else
+        {
+            errorMessages.Add("Erro desconhecido ao criar conta.");
+        }
+    }
+}
